@@ -1,13 +1,10 @@
-:root{
-   font-size: 40%;
-}
 
 #page-landing{
    background: var(--color-primary);
 }
 
 #page-landing #container{
-    color:var(--text-in-primary);
+    color:var(--color-text-in-primary);
 }
 
 .logo-container img{
@@ -32,7 +29,7 @@
 .buttons-container{
     display: flex;
     justify-content: center;
-    margin: 3.2rem 0;
+    margin: 0;
 }
 
 .buttons-container a{
@@ -89,12 +86,49 @@
     margin-left: 0.8rem;
 }
 
+@media (max-width: 699px){
+    :root{
+        font-size: 40%;
+     }     
+}
+
 @media(min-width:1100px){
     #page-landing #container{
         max-width: 1100px;
         display: grid; /*mostra as 'colunas'*/
        /* grid-template-columns: 33%33%33%; (neste caso,iria fazer 3 frações de 33% de um total delas) /*modifica as colunas,colocando '3' '1fr' irá fazer 3 colunas com frações iguais*/
        grid-template-columns: 2fr 1fr 2fr;
-       grid-template-rows: 350px 1fr/*aqui 'denomina as linhas',no caso,a 1° sera uma linha 'fixa' de 350px e todo restante sera colocado na fração debaixo*/
+       grid-template-rows: 350px 1fr;/*aqui 'denomina as linhas',no caso,a 1° sera uma linha 'fixa' de 350px e todo restante sera colocado na fração debaixo*/
+       grid-template-areas:
+       "proffy image image"
+       "button button texting";
+       column-gap: 87px;
+       row-gap: 86px;
+    }
+
+    .logo-container{
+        grid-area: proffy;
+        text-align: initial;
+        align-self: center;
+        margin: 0;
+    }
+
+    .logo-container img{
+        height: 127%;
+    } 
+
+    .hero-image{
+        grid-area: image;
+        height: 350px;
+    }
+    .buttons-container{
+        grid-area: button;
+        justify-content: flex-start;
+        margin:0;
+    }
+    .total-connections{
+        grid-area: texting;
+        justify-self: end;
+        font-size: 1.2rem;
     }
 }
